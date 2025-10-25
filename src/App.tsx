@@ -8,7 +8,7 @@ function App() {
   return (
     <section>
       <p>main page</p>
-      <Button onClick={toggleTheme} size="icon" className="gap-3">
+      <Button onClick={toggleTheme} className="gap-3">
         {theme === "dark" ? <><Sun />Light</> : <><Moon /> Dark</>}
       </Button>
     </section>
