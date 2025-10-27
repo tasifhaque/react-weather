@@ -12,7 +12,7 @@ const Header = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="container mx-auto py-5 flex flex-col gap-5">
+    <div className="container mx-auto py-5 flex flex-col gap-12">
       <header className="flex items-center justify-between ">
         <div className="flex items-center gap-10">
           <h1 className="font-black text-2xl">
@@ -24,7 +24,7 @@ const Header = () => {
                 `${
                   isActive
                     ? "font-bold text-primary underline underline-offset-2"
-                    : ""
+                    : "text-muted-foreground font-medium"
                 }`
               }
               to={link}
@@ -33,11 +33,15 @@ const Header = () => {
             </NavLink>
           ))}
         </div>
-        <Button onClick={toggleTheme} size="icon" variant="outline">
-          {theme === "dark" ? <Sun /> : <Moon />}
-        </Button>
+        <div className="flex items-center gap-10">
+          <Button onClick={toggleTheme} size="icon" variant="outline">
+            {theme === "dark" ? <Sun /> : <Moon />}
+          </Button>
+        </div>
       </header>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 };
