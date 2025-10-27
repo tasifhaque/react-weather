@@ -20,6 +20,7 @@ const Header = () => {
           </h1>
           {menuItems.map(({ link, label }) => (
             <NavLink
+              key={link}
               className={({ isActive }) =>
                 `${
                   isActive

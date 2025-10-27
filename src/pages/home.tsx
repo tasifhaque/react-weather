@@ -36,6 +36,7 @@ const Home = () => {
           </Button>
         </div>
       </div>
+      <p>{ }</p>
     </section>
   );
 };
