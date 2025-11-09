@@ -4,17 +4,21 @@ import { persist } from "zustand/middleware";
 
 export type WeatherType = {
   weather: IWeather | null;
+  weatherUnit: "celcius" | "fahrenheit";
   weatherLoading: boolean;
   weatherError: boolean;
   lastFetched: Date;
   getWeather: (url: string) => void;
+  setWeatherUnit: (unit: "celcius" | "fahrenheit") => void;
+  toggleWeatherUnit: () => void;
 };
 
 export const useWeather = create<WeatherType>()(
   persist(
-    (set) => {
+    (set, get) => {
       return {
         weather: null,
+        weatherUnit: "celcius",
         weatherLoading: false,
         weatherError: false,
         lastFetched: new Date(),
@@ -34,6 +38,12 @@ export const useWeather = create<WeatherType>()(
               set({ weatherLoading: false, weatherError: true });
             });
         },
+        setWeatherUnit: (unit) => set({ weatherUnit: unit }),
+        toggleWeatherUnit: () =>
+          set({
+            weatherUnit:
+              get().weatherUnit === "celcius" ? "fahrenheit" : "celcius",
+          }),
       };
     },
     { name: "weather" }
