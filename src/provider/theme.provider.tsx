@@ -1,4 +1,4 @@
-import { useTheme } from "@/store/themeStore";
+import { useTheme } from "@/store/theme.store";
 import { useEffect, type ReactNode } from "react";
 
 const ThemeProvider = ({ children }: { children: ReactNode }) => {

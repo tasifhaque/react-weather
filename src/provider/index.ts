@@ -1,5 +1,5 @@
-import LocationProvider from "@/provider/locationProvider";
-import ThemeProvider from "@/provider/themeProvider";
-import WeatherProvider from "@/provider/weatherProvider";
+import LocationProvider from "@/provider/location.provider";
+import ThemeProvider from "@/provider/theme.provider";
+import WeatherProvider from "@/provider/weather.provider";
 
-export { LocationProvider, ThemeProvider,WeatherProvider };
+export { LocationProvider, ThemeProvider, WeatherProvider };

@@ -3,7 +3,7 @@ import { MoonIcon, SunIcon } from "lucide-react";
 
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { useTheme } from "@/store/themeStore";
+import { useTheme } from "@/store/theme.store";
 
 export default function ThemeSwitch() {
   const id = useId();

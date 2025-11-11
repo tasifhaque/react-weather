@@ -2,7 +2,7 @@ import { useId } from "react";
 
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { useWeather } from "@/store/weatherStore";
+import { useWeather } from "@/store/weather.store";
 
 export default function WeatherUnitSwitch() {
   const id = useId();

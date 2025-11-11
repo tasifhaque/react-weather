@@ -1,4 +1,4 @@
-import { useGeoLocation } from "@/store/geoLocationStore";
+import { useGeoLocation } from "@/store";
 import { useEffect, type ReactNode } from "react";
 
 const LocationProvider = ({ children }: { children: ReactNode }) => {

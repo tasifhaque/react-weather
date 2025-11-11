@@ -1,14 +1,10 @@
-import { useGeoLocation } from "@/store/geoLocationStore";
-import { useWeather } from "@/store/weatherStore";
+import { useGeoLocation } from "@/store/geolocation.store";
+import { useWeather } from "@/store/weather.store";
 import { useEffect, type ReactNode } from "react";
 
 const WeatherProvider = ({ children }: { children: ReactNode }) => {
   const { location } = useGeoLocation();
-  const { weatherUnit, setWeatherUnit } = useWeather();
-
-  useEffect(() => {
-    setWeatherUnit("fahrenheit");
-  }, [setWeatherUnit]);
+  const { weatherUnit } = useWeather();
 
   const url = `https://api.open-meteo.com/v1/forecast?latitude=${
     location?.latitude
