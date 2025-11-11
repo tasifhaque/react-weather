@@ -16,6 +16,7 @@ const Weather = () => {
           className="w-25 aspect-square object-scale-down"
           src={`/assets/${icon}`}
           alt="clouds"
+          draggable={false}
         />
         <div className="flex items-end gap-5 font-bold text-4xl">
           <h1 className="text-5xl font-black">{condition},</h1>

@@ -9,16 +9,15 @@ const Precipitationoverview = () => {
       <CardContent className="flex flex-col divide-y-2">
         {Array.from({ length: 4 }, () => (
           <div className="flex  flex-col py-3">
+            <div className="flex gap-1">
+              <Cloud />
+              <p>Precipitation</p>
+            </div>
             <div className="flex items-center justify-between">
-              <p>Last 24 Hours</p>
+              <p className="text-sm text-muted-foreground">in Last 1 Hour</p>
               <p>
                 <span className="text-xl">3 </span>MM
               </p>
-            </div>
-
-            <div className="flex gap-1">
-              <Cloud />
-              <p>Rain</p>
             </div>
           </div>
         ))}

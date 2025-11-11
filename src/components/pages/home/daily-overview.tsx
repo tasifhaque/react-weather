@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useWeather } from "@/store";
 import { format } from "date-fns";
 
-const DayOverview = () => {
+const DailyOverview = () => {
   const { weather } = useWeather();
 
   const todaysDate = format(new Date(), "yyyy-MM-dd");
@@ -66,7 +66,7 @@ const DayOverview = () => {
           ({ icon: Icon, label, data }) => (
             <div className="flex items-center justify-between py-3">
               <div className="flex items-center gap-2">
-                <Icon />
+                <Icon className="text-muted-foreground" />
                 <p>{label}</p>
               </div>
               {label === "Sunrise" || label === "Sunset"
@@ -80,4 +80,4 @@ const DayOverview = () => {
   );
 };
 
-export default DayOverview;
+export default DailyOverview;
