@@ -17,7 +17,10 @@ const ForecastOverview = () => {
               new Date(new Date(time).toDateString()),
               new Date(new Date().toDateString())
             ) && (
-              <div className="flex items-center justify-between py-3">
+              <div
+                className="flex items-center justify-between py-3"
+                key={index}
+              >
                 <div className="flex items-center gap-2 w-full">
                   <Calendar className="text-muted-foreground" />
                   <p>{format(new Date(time), "ccc,")}</p>
