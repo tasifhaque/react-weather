@@ -4,12 +4,14 @@ import ForecastOverview from "@/components/pages/home/forecast-overview";
 import Precipitationoverview from "@/components/pages/home/precipitation-overview";
 import DailyOverview from "@/components/pages/home/daily-overview";
 import { useWeather } from "@/store";
+import WeeklyTemperatureCharts from "@/components/pages/home/weekly-temperature-charts";
+import HourlyTemperatureChart from "@/components/pages/home/hourly-temperature-chart";
 
 const Home = () => {
   const { weather } = useWeather();
 
   return weather ? (
-    <section className="flex flex-col gap-20">
+    <section className="flex flex-col gap-4">
       <Location />
       <Weather />
       <main className="grid grid-cols-3 gap-4">
@@ -17,10 +19,10 @@ const Home = () => {
         <ForecastOverview />
         <Precipitationoverview />
       </main>
-      <footer className="grid grid-cols-2 gap-4">
-        <div>weekly charts</div>
-        <div>hourly charts</div>
-      </footer>
+      <div className="grid grid-cols-2 gap-4">
+        <WeeklyTemperatureCharts/>
+        <HourlyTemperatureChart/>
+      </div>
     </section>
   ) : (
     "Loading..."

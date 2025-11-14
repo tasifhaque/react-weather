@@ -14,7 +14,7 @@ import WeatherUnitSwitch from "./ui/weather-unit-switch";
 
 const menuItems = [
   { link: "/", label: "Home" },
-  { link: "/hourly", label: "Hourly" },
+  // { link: "/hourly", label: "Hourly" },
 ];
 
 const Header = () => {
