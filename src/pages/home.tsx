@@ -11,21 +11,25 @@ const Home = () => {
   const { weather } = useWeather();
 
   return weather ? (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-4 p-4 md:p-6">
       <Location />
       <Weather />
-      <main className="grid grid-cols-3 gap-4">
-        <DailyOverview />
+
+      <main className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="md:col-span-2 xl:col-span-1">
+          <DailyOverview />
+        </div>
         <ForecastOverview />
         <Precipitationoverview />
       </main>
-      <div className="grid grid-cols-2 gap-4">
-        <WeeklyTemperatureCharts/>
-        <HourlyTemperatureChart/>
+
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <WeeklyTemperatureCharts />
+        <HourlyTemperatureChart />
       </div>
     </section>
   ) : (
-    "Loading..."
+    <div className="flex h-screen items-center justify-center">Loading...</div>
   );
 };
 

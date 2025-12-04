@@ -109,7 +109,7 @@ const PrecipitationOverview = () => {
       weather?.daily_units?.precipitation_sum
     }`;
   };
-  
+
   const precipitationSummaries: IprecipitationSummaries[] = [
     {
       icon: Cloud,

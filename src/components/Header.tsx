@@ -4,6 +4,7 @@ import {
   CustomDropdownMenuItem,
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
@@ -19,36 +20,60 @@ const menuItems = [
 
 const Header = () => {
   return (
-    <div className="container mx-auto py-5 flex flex-col gap-12">
-      <header className="flex items-center justify-between ">
-        <div className="flex items-center gap-10">
-          <h1 className="font-black text-2xl">
+    <div className="container mx-auto px-4 py-4 md:py-5 flex flex-col gap-6 md:gap-12">
+      <header className="flex items-center justify-between">
+        <div className="flex items-center gap-4 md:gap-10">
+          <h1 className="font-black text-xl md:text-2xl">
             Re<span className="text-primary">Cast</span>
           </h1>
-          {menuItems.map(({ link, label }) => (
-            <NavLink
-              key={link}
-              className={({ isActive }) =>
-                `${
-                  isActive
-                    ? "font-bold text-primary underline underline-offset-2"
-                    : "text-muted-foreground font-medium"
-                }`
-              }
-              to={link}
-            >
-              {label}
-            </NavLink>
-          ))}
+
+          <nav className="hidden md:flex items-center gap-6">
+            {menuItems.map(({ link, label }) => (
+              <NavLink
+                key={link}
+                className={({ isActive }) =>
+                  `${
+                    isActive
+                      ? "font-bold text-primary underline underline-offset-2"
+                      : "text-muted-foreground font-medium"
+                  } hover:text-primary transition-colors`
+                }
+                to={link}
+              >
+                {label}
+              </NavLink>
+            ))}
+          </nav>
         </div>
-        <div className="flex items-center gap-10">
+
+        <div className="flex items-center gap-2 md:gap-10">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="icon">
-                <Menu />
+                <Menu className="h-[1.2rem] w-[1.2rem]" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" className="w-56">
+              <div className="md:hidden">
+                <DropdownMenuLabel>Navigation</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                {menuItems.map(({ link, label }) => (
+                  <DropdownMenuItem key={link} asChild>
+                    <NavLink
+                      to={link}
+                      className={({ isActive }) =>
+                        `w-full cursor-pointer ${
+                          isActive ? "text-primary font-bold" : ""
+                        }`
+                      }
+                    >
+                      {label}
+                    </NavLink>
+                  </DropdownMenuItem>
+                ))}
+                <DropdownMenuSeparator />
+              </div>
+
               <DropdownMenuLabel>General Settings</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <CustomDropdownMenuItem>

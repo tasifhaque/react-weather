@@ -61,18 +61,30 @@ const DailyOverview = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-3xl">Daily Overview</CardTitle>
+        <CardTitle className="text-xl md:text-2xl lg:text-3xl">
+          Daily Overview
+        </CardTitle>
       </CardHeader>
+
       <CardContent className="flex flex-col divide-y-2">
         {Array.from(a, ({ icon: Icon, label, data }, index) => (
-          <div key={index} className="flex items-center justify-between py-3">
-            <div className="flex items-center gap-2">
-              <Icon className="text-muted-foreground" />
-              <p>{label}</p>
+          <div
+            key={index}
+            className="flex items-center justify-between py-2 md:py-3"
+          >
+            <div className="flex items-center gap-2 md:gap-3">
+              <Icon className="h-4 w-4 md:h-5 md:w-5 text-muted-foreground" />
+
+              <p className="text-sm md:text-base font-medium text-foreground/80">
+                {label}
+              </p>
             </div>
-            {label === "Sunrise" || label === "Sunset"
-              ? format(new Date(data as string), "hh:mm aa")
-              : data}
+
+            <p className="text-sm md:text-base font-semibold">
+              {label === "Sunrise" || label === "Sunset"
+                ? format(new Date(data as string), "hh:mm aa")
+                : data}
+            </p>
           </div>
         ))}
       </CardContent>
