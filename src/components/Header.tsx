@@ -55,8 +55,6 @@ const Header = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">
               <div className="md:hidden">
-                <DropdownMenuLabel>Navigation</DropdownMenuLabel>
-                <DropdownMenuSeparator />
                 {menuItems.map(({ link, label }) => (
                   <DropdownMenuItem key={link} asChild>
                     <NavLink
